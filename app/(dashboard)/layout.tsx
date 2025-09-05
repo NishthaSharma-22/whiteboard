@@ -1,5 +1,5 @@
 import Navbar from "./_components/navbar";
-import Sidebar from "./_components/sidebar";
+import Sidebar from "./_components/sidebar/sidebar";
 import Topbar from "./_components/topbar";
 
 interface DashboardLayoutProps {
