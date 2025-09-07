@@ -1,5 +1,4 @@
 "use client";
-import NewOrganization from "./newOrg";
 import Link from "next/link";
 import Image from "next/image";
 import { Button } from "@/components/ui/button";
@@ -14,18 +13,16 @@ export default function Sidebar() {
         <Link href="/" />
         <Image src="/next.svg" alt="image" height={120} width={120} />
 
-        <div className="flex gap-3">
-          <Button
-            className="w-full bg-gray-600"
-          >
-            <Link href={{ pathname: "/", query: { favorites: true } }}>
-              <div className="flex justify-center items-center gap-x-4 ">
-                <Star /> Favorites
-              </div>
-            </Link>
-          </Button>
+          <div className="flex gap-3">
+            <Button className="w-full bg-gray-600">
+              <Link href={{ pathname: "/", query: { favorites: true } }}>
+                <div className="flex justify-center items-center gap-x-4 ">
+                  <Star /> Favorites
+                </div>
+              </Link>
+            </Button>
+          </div>
         </div>
-      </div>
     </>
   );
 }
