@@ -7,7 +7,7 @@ export const Loading = () => {
         alt="logo"
         height={200}
         width={200}
-        className="animate-pulse duration-1000 flex justify-center"
+        className="animate-bounce duration-1000 flex justify-center"
       />
     </div>
   );
