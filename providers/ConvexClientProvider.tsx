@@ -27,7 +27,9 @@ export default function ConvexClerkProvider({
         <Loading />
       </AuthLoading>
       <Authenticated>{children}</Authenticated>
-      <Unauthenticated><SignInPage/></Unauthenticated>
+      <Unauthenticated>
+        <SignInPage />
+      </Unauthenticated>
     </ConvexProviderWithClerk>
   );
 }

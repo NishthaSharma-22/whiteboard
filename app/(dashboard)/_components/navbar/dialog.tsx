@@ -1,9 +1,7 @@
-
 import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { CreateOrganization } from "@clerk/nextjs";
 import { DialogTitle } from "@radix-ui/react-dialog";
-import { PlusSquareIcon} from "lucide-react";
 
 export default function DialogCloseButton() {
   return (
@@ -12,7 +10,7 @@ export default function DialogCloseButton() {
         <Button variant="outline">Create Organization</Button>
       </DialogTrigger>
 
-      <DialogContent className="sm:max-w-md p-2 overflow-hidden flex flex-col justify-center items-center">
+      <DialogContent className="sm:max-w-md p-2 bg-transparent border-none overflow-hidden flex flex-col justify-center items-center">
         <DialogTitle className="text-lg font-semibold text-gray-900">
           Add Organization
         </DialogTitle>

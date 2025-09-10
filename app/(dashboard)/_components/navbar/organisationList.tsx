@@ -11,9 +11,9 @@ export default function OrganisationList() {
     <>
       <ul>
         {userMemberships.data?.map((member) => (
-          <p key={member.organization.id}>
+          <li key={member.organization.id}>
             <DropdownMenuItem>{member.organization.name}</DropdownMenuItem>
-          </p>
+          </li>
         ))}
       </ul>
     </>
