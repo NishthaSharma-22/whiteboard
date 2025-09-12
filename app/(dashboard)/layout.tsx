@@ -7,16 +7,18 @@ interface DashboardLayoutProps {
 }
 export default function DashboardLayout({ children }: DashboardLayoutProps) {
   return (
-    <main className="h-full">
-      <Topbar />
-      <div className="w-full pt-[50px]">
-        <div className="flex h-full gap-x-4">
-          <Sidebar />
-          <div className="pl-[5px] h-full flex-1">
-            <Navbar />
-            {children}
-          </div>
+    <main className="h-screen flex">
+      <Sidebar />
+      <div className="flex-1 flex flex-col">
+        <div className="h-[50px]">
+          <Topbar />
         </div>
+
+        <div className="h-[60px]">
+          <Navbar />
+        </div>
+
+        <div className="flex-1">{children}</div>
       </div>
     </main>
   );

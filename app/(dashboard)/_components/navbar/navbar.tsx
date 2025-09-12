@@ -11,6 +11,9 @@ export default function Navbar() {
   return (
     <div className="flex justify-between items-center gap-x-3 h-[45px] p-[4px]">
       <div className="flex justify-center items-center gap-x-4">
+        <Search />
+      </div>
+      <div className="flex justify-center items-center gap-x-4">
         <DialogCloseButton />
         {/* <Organisations /> */}
         <OrganizationSwitcher
@@ -29,10 +32,6 @@ export default function Navbar() {
             },
           }}
         />
-
-        <Search />
-      </div>
-      <div className="flex justify-center items-center gap-x-4">
         <Toggle className="cursor-pointer">
           <Moon />
         </Toggle>
