@@ -3,16 +3,13 @@
 import { Toggle } from "@/components/ui/toggle";
 import { OrganizationSwitcher, UserButton } from "@clerk/nextjs";
 import { Moon } from "lucide-react";
-import Organisations from "./organisations";
 import Search from "./search";
 import DialogCloseButton from "./dialog";
+
 
 export default function Navbar() {
   return (
     <div className="flex justify-between items-center gap-x-3 h-[45px] p-[8px]">
-      <div className="flex justify-center items-center gap-x-4">
-        <Search />
-      </div>
       <div className="flex justify-center items-center gap-x-4">
         <DialogCloseButton />
         {/* <Organisations /> */}
@@ -32,6 +29,10 @@ export default function Navbar() {
             },
           }}
         />
+      </div>
+      <div className="flex justify-center items-center gap-x-4">
+        <Search />
+
         <Toggle className="cursor-pointer">
           <Moon />
         </Toggle>
