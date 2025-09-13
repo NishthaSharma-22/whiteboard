@@ -1,7 +1,16 @@
 "use client";
-import BlankBoard from "./_components/blank-board/blank";
+import BlankBoard from "./_components/empty-board/blank";
 import { useOrganization } from "@clerk/nextjs";
-export default function Dashboard() {
+import EmptyBoards from "./_components/blank-board/empty-board";
+
+interface DashboardPageProps {
+  searchParams: {
+    search?: string;
+    favorites?: string;
+  };
+}
+
+export default function Dashboard({searchParams}: DashboardPageProps) {
   const { organization } = useOrganization();
   return (
     <>
@@ -10,7 +19,9 @@ export default function Dashboard() {
           <BlankBoard />
         </div>
       ) : (
-        <p>hi!</p>
+        <EmptyBoards
+        orgId = {organization.id}
+        query={searchParams}/>
       )}
     </>
   );

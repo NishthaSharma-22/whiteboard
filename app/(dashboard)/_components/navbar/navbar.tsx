@@ -9,7 +9,7 @@ import DialogCloseButton from "./dialog";
 
 export default function Navbar() {
   return (
-    <div className="flex justify-between items-center gap-x-3 h-[45px] p-[4px]">
+    <div className="flex justify-between items-center gap-x-3 h-[45px] p-[8px]">
       <div className="flex justify-center items-center gap-x-4">
         <Search />
       </div>

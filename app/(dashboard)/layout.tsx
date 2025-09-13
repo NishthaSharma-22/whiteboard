@@ -18,7 +18,7 @@ export default function DashboardLayout({ children }: DashboardLayoutProps) {
           <Navbar />
         </div>
 
-        <div className="flex-1">{children}</div>
+        <div className="flex-1 p-[5px]">{children}</div>
       </div>
     </main>
   );
