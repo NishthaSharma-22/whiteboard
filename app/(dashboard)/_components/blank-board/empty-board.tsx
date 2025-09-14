@@ -6,6 +6,7 @@ import BlankBoardPage from "./blank-board-page";
 import BlankFavs from "./blank-favs";
 import BlankSearch from "./blank-search";
 import BoardCard from "../board-cards";
+import AddNewBoardButton from "../board-cards/new-board";
 
 interface EmptyBoardProps {
   orgId: string;
@@ -26,8 +27,11 @@ export default function EmptyBoards({ orgId, query }: EmptyBoardProps) {
   }
   return (
     <div>
-      <h2 className="text-2xl font-semibold tracking-tight text-gray-800 dark:text-gray-200">{query.favorites ? "Favorite Boards" : "Boards"}</h2>
+      <h2 className="text-2xl font-semibold tracking-tight text-gray-800 dark:text-gray-200">
+        {query.favorites ? "Favorite Boards" : "Boards"}
+      </h2>
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 xl:grid-cols-5 gap-5 mt-8 pb-10">
+        <AddNewBoardButton orgId={orgId} />
         {data.map((board) => (
           <BoardCard
             key={board._id}
