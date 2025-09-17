@@ -20,19 +20,41 @@ export const create = mutation({
       authorName: identity.name!,
       imageUrl: randomImage,
     });
-    return board
+    return board;
   },
 });
 
 export const remove = mutation({
-  args: { id: v.id("boards")},
-  handler: async (ctx, args)=>{
-    const identity = await ctx.auth.getUserIdentity()
-    if (!identity){
-      throw new Error("Unauthorized!!")
-
-
+  args: { id: v.id("boards") },
+  handler: async (ctx, args) => {
+    const identity = await ctx.auth.getUserIdentity();
+    if (!identity) {
+      throw new Error("Unauthorized!!");
     }
-    await ctx.db.delete(args.id)
-  }
-})
+    await ctx.db.delete(args.id);
+  },
+});
+
+export const update = mutation({
+  args: { id: v.id("boards"), title: v.string() },
+  handler: async (ctx, args) => {
+    const identity = await ctx.auth.getUserIdentity();
+    const title = args.title.trim();
+
+    if (!identity) {
+      throw new Error("Unauthorized!!");
+    }
+    if (!title) {
+      throw new Error("Title is needed.");
+    }
+
+    if (title.length > 60) {
+      throw new Error("Title has to be less than 60 characters.");
+    }
+
+    const board = await ctx.db.patch(args.id, {
+      title: args.title,
+    });
+    return board;
+  },
+});

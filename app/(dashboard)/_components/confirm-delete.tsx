@@ -39,8 +39,14 @@ export const ConfirmDelete = ({
           <AlertDialogDescription>{description}</AlertDialogDescription>
         </AlertDialogHeader>
         <AlertDialogFooter>
-          <AlertDialogCancel>Cancel</AlertDialogCancel>
-          <AlertDialogAction disabled={disabled} onClick={confirm}>
+          <AlertDialogCancel className="cursor-pointer">
+            Cancel
+          </AlertDialogCancel>
+          <AlertDialogAction
+            disabled={disabled}
+            onClick={confirm}
+            className="cursor-pointer"
+          >
             Confirm
           </AlertDialogAction>
         </AlertDialogFooter>
