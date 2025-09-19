@@ -26,7 +26,13 @@ export default function Search() {
     <>
       <div className="relative">
         <SearchIcon className="absolute left-2 top-1/2 -translate-y-1/2" />
-        <Input type="text" placeholder="search" className="w-[400px] pl-10" onChange={handleChange} value={value} />
+        <Input
+          type="text"
+          placeholder="search"
+          className="w-[400px] pl-10 border-b-emerald-500 focus:outline-none focus-visible:ring-0 focus-visible:outline-none"
+          onChange={handleChange}
+          value={value}
+        />
       </div>
     </>
   );
