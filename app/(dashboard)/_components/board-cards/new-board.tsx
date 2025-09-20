@@ -4,6 +4,7 @@ import { cn } from "@/lib/utils";
 import { useMutation } from "convex/react";
 import { Plus } from "lucide-react";
 import { useState } from "react";
+import { useRouter } from "next/navigation";
 
 interface AddNewBoardButtonProps {
   orgId: string;
@@ -14,15 +15,21 @@ export default function AddNewBoardButton({
   orgId,
   disabled,
 }: AddNewBoardButtonProps) {
+  const router = useRouter();
   const create = useMutation(api.board.create);
   const [cooldown, setCooldown] = useState(false);
   const onClick = async () => {
     if (cooldown) return;
     setCooldown(true);
-    await create({ orgId, title: "Untitled" });
-    setTimeout(() => setCooldown(false), 1000);
+    try {
+      const id: string = await create({ orgId, title: "Untitled" });
+      router.push(`/board/${id}`);
+    } catch (err) {
+      console.error("Failed to create board:", err);
+    } finally {
+      setTimeout(() => setCooldown(false), 1000);
+    }
   };
-
   return (
     <button
       disabled={disabled || cooldown}
