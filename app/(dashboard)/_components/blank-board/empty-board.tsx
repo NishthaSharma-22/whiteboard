@@ -8,6 +8,8 @@ import BlankSearch from "./blank-search";
 import BoardCard from "../board-cards";
 import AddNewBoardButton from "../board-cards/new-board";
 
+import { Loader } from "lucide-react";
+
 interface EmptyBoardProps {
   orgId: string;
   query: {
@@ -23,7 +25,13 @@ export default function EmptyBoards({ orgId, query }: EmptyBoardProps) {
     favorites: query.favorites,
   });
 
-  if (data === undefined) return <div>Loading...</div>;
+  if (data === undefined)
+    return (
+      <div className="h-full flex flex-col items-center justify-center gap-y-4 text-muted-foreground">
+        <Loader className="animate-spin" />
+        <div className="text-2xl">Loading...</div>
+      </div>
+    );
   if (!data.length) {
     if (query.search) return <BlankSearch />;
     if (query.favorites) return <BlankFavs />;

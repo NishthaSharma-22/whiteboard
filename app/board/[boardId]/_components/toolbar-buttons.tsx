@@ -14,12 +14,15 @@ interface ToolbarButtonsProps {
 export const ToolbarButtons = ({
     label, icon:Icon, onClick, isActive, isDisabled
 }: ToolbarButtonsProps)=>{
-    return(
-        <Button
+    return (
+      <Button
         disabled={isDisabled}
         onClick={onClick}
-        size="icon">
-            <Icon/>
-        </Button>
-    )
+        size="icon"
+        variant={isActive ? "default" : "secondary"}
+        title={label}
+      >
+        <Icon />
+      </Button>
+    );
 }
