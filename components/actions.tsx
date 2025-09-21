@@ -13,6 +13,7 @@ import { useMutation } from "convex/react";
 import { ConfirmDelete } from "@/app/(dashboard)/_components/confirm-delete";
 import { Button } from "./ui/button";
 import { useRenameModal } from "@/store/use-rename-modal";
+import { Id } from "@/convex/_generated/dataModel";
 
 interface ActionProps {
   children: React.ReactNode;
@@ -34,7 +35,7 @@ export const Actions = ({
 
   const removeBoard = async () => {
     try {
-      await deleteBoard({ id });
+await deleteBoard({ id: id as Id<"boards"> });
     } catch (err) {
       console.error("Failed to delete the oard:", err);
     }

@@ -15,6 +15,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { useMutation } from "convex/react";
 import { api } from "@/convex/_generated/api";
+import { Id } from "@/convex/_generated/dataModel";
 
 export const RenameModal = () => {
   const updateBoard = useMutation(api.board.update);
@@ -30,9 +31,10 @@ export const RenameModal = () => {
     e.preventDefault();
     try {
       await updateBoard({
-        id: initialValues.id,
+        id: initialValues.id as Id<"boards">,
         title,
       });
+
       onClose();
     } catch (err) {
       console.error("failed to update title", err);

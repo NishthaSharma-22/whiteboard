@@ -39,7 +39,7 @@ export const Info = ({ boardId }: InfoProps) => {
           </Button>
         </Actions>
         <Button
-          onClick={() => onOpen(data?._id, data?.title)}
+          onClick={() => onOpen(data?._id ?? "", data?.title ?? "Untitled")}
           className="bg-neutral-100 text-black hover:bg-neutral-200 px-[40] cursor-pointer"
         >
           {data?.title || "Untitled"}

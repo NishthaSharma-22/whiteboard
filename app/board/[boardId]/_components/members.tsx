@@ -15,7 +15,7 @@ export const Members = () => {
         {users.slice(0, MAX_SHOWN_USERS).map(({ connectionId, info }) => (
           <UserAvatar
             key={connectionId}
-            src={info?.picture}
+            src={info?.avatar}
             name={info?.name}
             fallback={info?.name?.[0] || "N"}
           />

@@ -22,7 +22,7 @@ import { pointerEventToCanvasPoint } from "@/lib/utils";
 import { nanoid } from "nanoid";
 import { LiveObject } from "@liveblocks/client";
 import { LayerPreview } from "./layer-preview";
-
+import { Layer } from "@/types/canvas";
 const MAX_LAYERS = 100;
 
 interface CanvasProps {
@@ -50,13 +50,13 @@ export const Canvas = ({ boardId }: CanvasProps) => {
       }
       const liveLayerIds = storage.get("layerIds");
       const layerId = nanoid();
-      const layer = new LiveObject({
+      const layer = new LiveObject<Layer>({
         type: layerType,
         x: position.x,
         y: position.y,
-        height: 100,
         width: 100,
-        fill: "green",
+        height: 100,
+        fill: { r: 0, g: 255, b: 0 },
       });
       liveLayerIds.push(layerId);
       liveLayers.set(layerId, layer);
@@ -83,12 +83,12 @@ export const Canvas = ({ boardId }: CanvasProps) => {
   const onPointerUp = useMutation(
     ({}, e) => {
       const point = pointerEventToCanvasPoint(e, camera);
-      console.log({
-        point,
-        mode: canvasState.mode,
-        LayerType: canvasState.layer,
-      });
-      if (canvasState.mode === CanvasMode.Inserting) {
+
+      if (
+        canvasState.mode === CanvasMode.Inserting &&
+        (canvasState.layerType === LayerType.Rectangle ||
+          canvasState.layerType === LayerType.Ellipse)
+      ) {
         insertLayer(canvasState.layerType, point);
       } else {
         setCanvasState({
