@@ -1,36 +1,14 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+### what i learned
 
-## Getting Started
+### new things i learned
+- this is my first full stack app - i used database for the first time, and used apis to link it
+- typescript + nextjs!
+- learned to use shadcn ui - and wished i discovered it earlier
+- used convex and clerk and absolutely loved the combo!
 
-First, run the development server:
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
-
-## Learn More
-
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### challenges i faced
+- even though clerk and convex combo is supposed to be easy for beginners to set up an authentication system and backend with db, i had lots of trouble setting up and understanding how schema works, apis, setting up the authenatication system and wrapping teh whole application in it.
+- understanding conevx functions and making sure the code is good enough for boards and schema.
+- even though using shadcn ui was supposed to speed up the process, it took me equally long setting up the backend and db.
+- setting up schema - this was neew for me and 

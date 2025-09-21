@@ -1,16 +1,20 @@
 // Define Liveblocks types for your application
 // https://liveblocks.io/docs/api-reference/liveblocks-react#Typing-your-data
+
+import { createClient, LiveList,LiveMap, LiveObject } from "@liveblocks/client";
+import { Layer, Color } from "./types/canvas";
 declare global {
   interface Liveblocks {
     // Each user's Presence, for useMyPresence, useOthers, etc.
     Presence: {
       // Example, real-time cursor coordinates
-      // cursor: { x: number; y: number };
+      cursor: { x: number; y: number } | null;
     };
 
     // The Storage tree for the room, for useMutation, useStorage, etc.
     Storage: {
-      // Example, a conflict-free list
+      layers: LiveMap<string, LiveObject<Layer>>;
+      layerIds: LiveList<string>
       // animals: LiveList<string>;
     };
 
@@ -19,16 +23,16 @@ declare global {
       id: string;
       info: {
         // Example properties, for useSelf, useUser, useOthers, etc.
-        // name: string;
-        // avatar: string;
+        name: string;
+        avatar: string;
       };
     };
 
     // Custom events, for useBroadcastEvent, useEventListener
     RoomEvent: {};
-      // Example has two events, using a union
-      // | { type: "PLAY" } 
-      // | { type: "REACTION"; emoji: "🔥" };
+    // Example has two events, using a union
+    // | { type: "PLAY" }
+    // | { type: "REACTION"; emoji: "🔥" };
 
     // Custom metadata set on threads, for useThreads, useCreateThread, etc.
     ThreadMetadata: {
