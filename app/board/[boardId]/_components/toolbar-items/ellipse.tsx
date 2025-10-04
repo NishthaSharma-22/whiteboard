@@ -22,7 +22,7 @@ export const Ellipse = ({
       cy={y + height / 2}
       rx={width / 2}
       ry={height / 2}
-      fill={fill || "black"}
+      fill="black"
       stroke={selectionColor || "black"}
       strokeWidth={1}
     />
