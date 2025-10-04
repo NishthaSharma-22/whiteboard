@@ -3,7 +3,7 @@ import { EllipseLayer } from "@/types/canvas";
 interface EllipseProps {
   id: string;
   layer: EllipseLayer;
-  onPointerDown: (e: React.PointerEvent<SVGRectElement>, id: string) => void;
+  onPointerDown: (e: React.PointerEvent<SVGEllipseElement>, id: string) => void;
   selectionColor?: string;
 }
 
